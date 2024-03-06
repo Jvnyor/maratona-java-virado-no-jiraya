@@ -2,19 +2,19 @@ package academy.devdojo.maratonajava.javacore.ZZJcrud.test;
 
 import academy.devdojo.maratonajava.javacore.ZZJcrud.service.AnimeService;
 import academy.devdojo.maratonajava.javacore.ZZJcrud.service.ProducerService;
-
 import java.util.Scanner;
 
 public class CrudTest01 {
-    private static final Scanner SCANNER = new Scanner(System.in);
+  private static final Scanner SCANNER = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        int op;
-        while (true) {
-            menu();
-            op = Integer.parseInt(SCANNER.nextLine());
-            if (op == 0) break;
-            switch (op) {
+  public static void main(String[] args) {
+    int op;
+    while (true) {
+      menu();
+      op = Integer.parseInt(SCANNER.nextLine());
+      if (op == 0)
+        break;
+      switch (op) {
                 case 1 -> {
                     producerMenu();
                     op = Integer.parseInt(SCANNER.nextLine());

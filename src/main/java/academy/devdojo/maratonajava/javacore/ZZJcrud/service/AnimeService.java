@@ -3,15 +3,14 @@ package academy.devdojo.maratonajava.javacore.ZZJcrud.service;
 import academy.devdojo.maratonajava.javacore.ZZJcrud.dominio.Anime;
 import academy.devdojo.maratonajava.javacore.ZZJcrud.dominio.Producer;
 import academy.devdojo.maratonajava.javacore.ZZJcrud.repository.AnimeRepository;
-
 import java.util.Optional;
 import java.util.Scanner;
 
 public class AnimeService {
-    private static final Scanner SCANNER = new Scanner(System.in);
+  private static final Scanner SCANNER = new Scanner(System.in);
 
-    public static void menu(int op) {
-        switch (op) {
+  public static void menu(int op) {
+    switch (op) {
             case 1 -> findByName();
             case 2 -> delete();
             case 3 -> save();
@@ -64,18 +63,19 @@ public class AnimeService {
         System.out.println("Anime found " + animeFromDb);
         System.out.println("Type the new name or enter to keep the same");
         String name = SCANNER.nextLine();
-        name = name.isEmpty() ? animeFromDb.getName() : name;
+        name = name.isEmpty() ? animeFromDb.getName() :
+              name;
 
-        System.out.println("Type the new number of episodes");
-        int episodes = Integer.parseInt(SCANNER.nextLine());
+              System.out.println("Type the new number of episodes");
+              int episodes = Integer.parseInt(SCANNER.nextLine());
 
-        Anime animeToUpdate = Anime.builder()
-                .id(animeFromDb.getId())
-                .episodes(episodes)
-                .producer(animeFromDb.getProducer())
-                .name(name)
-                .build();
+              Anime animeToUpdate = Anime.builder()
+                                        .id(animeFromDb.getId())
+                                        .episodes(episodes)
+                                        .producer(animeFromDb.getProducer())
+                                        .name(name)
+                                        .build();
 
-        AnimeRepository.update(animeToUpdate);
-    }
-}
+              AnimeRepository.update(animeToUpdate);
+            }
+  }

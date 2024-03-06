@@ -2,15 +2,14 @@ package academy.devdojo.maratonajava.javacore.ZZJcrud.service;
 
 import academy.devdojo.maratonajava.javacore.ZZJcrud.dominio.Producer;
 import academy.devdojo.maratonajava.javacore.ZZJcrud.repository.ProducerRepository;
-
 import java.util.Optional;
 import java.util.Scanner;
 
 public class ProducerService {
-    private static final Scanner SCANNER = new Scanner(System.in);
+  private static final Scanner SCANNER = new Scanner(System.in);
 
-    public static void menu(int op) {
-        switch (op) {
+  public static void menu(int op) {
+    switch (op) {
             case 1 -> findByName();
             case 2 -> delete();
             case 3 -> save();
@@ -56,13 +55,14 @@ public class ProducerService {
         System.out.println("Producer found " + producerFromDb);
         System.out.println("Type the new name or enter to keep the same");
         String name = SCANNER.nextLine();
-        name = name.isEmpty() ? producerFromDb.getName() : name;
+        name = name.isEmpty() ? producerFromDb.getName() :
+              name;
 
-        Producer producerToUpdate = Producer.builder()
-                .id(producerFromDb.getId())
-                .name(name)
-                .build();
+              Producer producerToUpdate = Producer.builder()
+                                              .id(producerFromDb.getId())
+                                              .name(name)
+                                              .build();
 
-        ProducerRepository.update(producerToUpdate);
-    }
-}
+              ProducerRepository.update(producerToUpdate);
+            }
+  }
